@@ -5,7 +5,7 @@ CREATE TABLE `picture` (
   `title` varchar(45) DEFAULT NULL,
   `author` varchar(45) DEFAULT NULL,
   `price` double DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `entry_date` date DEFAULT NULL,
   `shop_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_picture_shop_idx` (`shop_id`),
@@ -21,4 +21,3 @@ CREATE TABLE `shop` (
   `capacity` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-

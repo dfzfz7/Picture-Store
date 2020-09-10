@@ -28,6 +28,7 @@ public class Picture {
 	private String author;
 	@Column
 	private Double price;
+	@Column(name="entry_date")
 	@Temporal(TemporalType.TIMESTAMP) //Get actual time from system
 	private Date date;
 	
