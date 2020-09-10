@@ -4,24 +4,23 @@ import java.util.List;
 
 import e3SpringPictureShop.dto.Shop;
 
-
 public interface IShopService {
 
-	//CRUD METHODS
-	
-	//Create shop
+	// CRUD METHODS
+
+	// Create shop
 	public Shop createShop(Shop shop);
-	
-	//Get all shops
+
+	// Get all shops
 	public List<Shop> listShops();
-	
-	//Get shop by id
+
+	// Get shop by id
 	public Shop getShop(Long id);
-	
-	//Update shop
+
+	// Update shop
 	public Shop updateShop(Shop shop);
-	
-	//Delete shop
+
+	// Delete shop
 	public void deleteShop(Long id);
-	
+
 }

@@ -11,39 +11,37 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table (name = "shop")
+@Table(name = "shop")
 public class Shop {
-	
-	//ATTRIBUTES
+
+	// ATTRIBUTES
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) //Finds last id value in DB and increments
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Finds last id value in DB and increments
 	private Long id;
-	@Column (name = "shopName") //Different name in DB
-	private String name; 
+	@Column(name = "shopName") // Different name in DB
+	private String name;
 	@Column
 	private int capacity;
-	
-	//Entities relationship
+
+	// Entities relationship
 	@OneToMany
-    @JoinColumn(name="id")
-    private List<Picture> picture;
-	
-	
-	//CONSTRUCTORES
-	
-	public Shop() {}
-	
+	@JoinColumn(name = "id")
+	private List<Picture> picture;
+
+	// CONSTRUCTORES
+
+	public Shop() {
+	}
+
 	public Shop(Long id, String name, int capacity) {
 		this.id = id;
 		this.name = name;
 		this.capacity = capacity;
 	}
 
-	
-	//GETTERS & SETTERS
-	
+	// GETTERS & SETTERS
+
 	public Long getId() {
 		return id;
 	}
@@ -67,14 +65,13 @@ public class Shop {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
-	
-	//METHODS
-	
-	//Show shop information
+
+	// METHODS
+
+	// Show shop information
 	@Override
 	public String toString() {
 		return "Shop [id=" + id + ", shop name=" + name + ", storage capacity=" + capacity + "]";
 	}
-	
-	
+
 }
