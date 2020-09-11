@@ -7,9 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "shop")
@@ -19,15 +20,15 @@ public class Shop {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Finds last id value in DB and increments
 	private Long id;
-	@Column(name = "shopName") // Different name in DB
+	@Column
 	private String name;
 	@Column
 	private int capacity;
 
 	// Entities relationship
-	@OneToMany
-	@JoinColumn(name = "id")
-	private List<Picture> picture;
+	@OneToMany(mappedBy="shop") 
+	@JsonIgnore //To fix issue with infinite recursion
+	private List<Picture> pictures;
 
 	// CONSTRUCTORES
 
@@ -65,7 +66,16 @@ public class Shop {
 	public void setCapacity(int capacity) {
 		this.capacity = capacity;
 	}
+	
+	public List<Picture> getPictures() {
+		return pictures;
+	}
 
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
+	
 	// METHODS
 
 	// Show shop information

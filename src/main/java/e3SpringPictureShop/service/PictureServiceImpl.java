@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import e3SpringPictureShop.dao.IPictureDAO;
 import e3SpringPictureShop.dto.Picture;
+import e3SpringPictureShop.dto.Shop;
 
 @Service
 public class PictureServiceImpl implements IPictureService {
@@ -29,8 +30,8 @@ public class PictureServiceImpl implements IPictureService {
 
 	// Get pictures from shop
 	@Override
-	public List<Picture> listPictures(Long id) {
-		return iPictureDAO.findAllByShop(id);
+	public List<Picture> listPictures(Shop shop) {
+		return iPictureDAO.findAllByShop(shop);
 	}
 
 	// Get picture by id
@@ -49,12 +50,6 @@ public class PictureServiceImpl implements IPictureService {
 	@Override
 	public void deletePicture(Long id) {
 		iPictureDAO.deleteById(id);
-	}
-
-	// Delete all picture from shop
-	@Override
-	public void burnPictures(Long id) {
-		iPictureDAO.deleteAllByShop(id);
 	}
 
 }

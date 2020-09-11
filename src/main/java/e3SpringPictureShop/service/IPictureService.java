@@ -3,6 +3,7 @@ package e3SpringPictureShop.service;
 import java.util.List;
 
 import e3SpringPictureShop.dto.Picture;
+import e3SpringPictureShop.dto.Shop;
 
 public interface IPictureService {
 
@@ -15,7 +16,7 @@ public interface IPictureService {
 	public List<Picture> listAllPictures();
 
 	// Get pictures from shop
-	public List<Picture> listPictures(Long id);
+	public List<Picture> listPictures(Shop shop);
 
 	// Get picture by id
 	public Picture getPicture(Long id);
@@ -25,8 +26,5 @@ public interface IPictureService {
 
 	// Delete picture
 	public void deletePicture(Long id);
-
-	// Delete all picture from shop
-	public void burnPictures(Long id);
 
 }

@@ -54,7 +54,7 @@ public class ShopController {
 
 	// Delete shop
 	@DeleteMapping("/shops/{id}")
-	public void deleteShop(Long id) {
+	public void deleteShop(@PathVariable(name = "id")Long id) {
 		shopServiceImpl.deleteShop(id);
 		// TODO - burn all books from shop???
 	}
