@@ -56,7 +56,8 @@ public class ShopController {
 	@DeleteMapping("/shops/{id}")
 	public void deleteShop(@PathVariable(name = "id")Long id) {
 		shopServiceImpl.deleteShop(id);
-		// TODO - burn all books from shop???
+		//Shop does not have to have pictures // Shop has to be empty 
+		//if not error 500 will appear
 	}
 
 }

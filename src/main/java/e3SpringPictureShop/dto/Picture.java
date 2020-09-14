@@ -35,7 +35,6 @@ public class Picture {
 	// Entities relationship
 	@ManyToOne()
 	@JoinColumn(name = "shop_id")
-	
 	private Shop shop;
 
 	// CONSTRUCTORES
