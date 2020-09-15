@@ -11,12 +11,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/shops/",
+					"raw": "http://localhost:8181/api/shops/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",
@@ -41,12 +41,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/shops/",
+					"raw": "http://localhost:8181/api/shops/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",
@@ -62,12 +62,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/shops/1",
+					"raw": "http://localhost:8181/api/shops/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{        \r\n    \"name\": \"White Collar Valencia\",\r\n    \"capacity\": 70\r\n}",
+					"raw": "{        \r\n    \"capacity\": 70\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,12 +92,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/shops/1",
+					"raw": "http://localhost:8181/api/shops/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",
@@ -113,12 +113,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/pictures",
+					"raw": "http://localhost:8181/api/pictures",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"pictures"
@@ -142,12 +142,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/shops/1/pictures",
+					"raw": "http://localhost:8181/api/shops/1/pictures",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",
@@ -164,12 +164,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/shops/1/pictures",
+					"raw": "http://localhost:8181/api/shops/1/pictures",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",
@@ -186,12 +186,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/pictures/1",
+					"raw": "http://localhost:8181/api/pictures/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"pictures",
@@ -202,13 +202,13 @@
 			"response": []
 		},
 		{
-			"name": "Update picture by name",
+			"name": "Update picture by id",
 			"request": {
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Guernica\",\r\n    \"author\": \"Pablo Picasso\",\r\n    \"price\": 1000.0\r\n}",
+					"raw": "{\r\n    \"price\": 1000.0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -216,12 +216,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/pictures/1",
+					"raw": "http://localhost:8181/api/pictures/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"pictures",
@@ -237,12 +237,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/pictures/1",
+					"raw": "http://localhost:8181/api/pictures/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"pictures",
@@ -258,12 +258,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/burn/1",
+					"raw": "http://localhost:8181/api/burn/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"burn",
@@ -279,12 +279,12 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/shops/1",
+					"raw": "http://localhost:8181/api/shops/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8181",
 					"path": [
 						"api",
 						"shops",

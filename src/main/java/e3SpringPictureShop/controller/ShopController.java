@@ -26,8 +26,9 @@ public class ShopController {
 
 	// Create shop
 	@PostMapping("/shops")
-	public Shop createShop(@RequestBody Shop shop) {
-		return shopServiceImpl.createShop(shop);
+	public String createShop(@RequestBody Shop shop) {
+		shopServiceImpl.createShop(shop);
+		return shop.getName() + " shop has been created";
 	}
 
 	// Get all shops
@@ -44,20 +45,34 @@ public class ShopController {
 
 	// Update shop
 	@PutMapping("/shops/{id}")
-	public Shop updateShop(@PathVariable(name = "id") Long id, @RequestBody Shop shop) {
-
+	public String updateShop(@PathVariable(name = "id") Long id, @RequestBody Shop shop) {
 		Shop shopToUpdate = shopServiceImpl.getShop(id);
-		shopToUpdate.setName(shop.getName());
-		shopToUpdate.setCapacity(shop.getCapacity());
-		return shopServiceImpl.updateShop(shopToUpdate);
+		if(shop.getName()!=null) {	//If name is not modified
+			shopToUpdate.setName(shop.getName()); 
+		}
+		if(shop.getCapacity()!=0) {	//If capacity is not modified
+			shopToUpdate.setCapacity(shop.getCapacity());
+		}
+		shopServiceImpl.updateShop(shopToUpdate);
+		return shopToUpdate.getName() + " shop has been updated\n";
 	}
 
 	// Delete shop
 	@DeleteMapping("/shops/{id}")
-	public void deleteShop(@PathVariable(name = "id")Long id) {
-		shopServiceImpl.deleteShop(id);
+	public String deleteShop(@PathVariable(name = "id")Long id) {
+		//In order to delete shop:
 		//Shop does not have to have pictures // Shop has to be empty 
 		//if not error 500 will appear
+		Shop shop = shopServiceImpl.getShop(id);
+		String msg;
+		if(shop.getPictures().size() != 0) {
+			msg = "Shop cannot be deleted due to still has pictures.\n "
+	           		+ "First you should burn all pictures from shop.\n" + " Try at: http://localhost:8080/api/burn/" + shop.getId();
+		} else {
+			shopServiceImpl.deleteShop(id);
+			msg = shop.getName() + " shop has been deleted";
+		}
+		return msg;	
 	}
 
 }

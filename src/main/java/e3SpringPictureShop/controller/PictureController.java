@@ -27,11 +27,12 @@ public class PictureController {
 
 	// Create picture
 	@PostMapping("/shops/{id}/pictures")
-	public Picture addPicture(@PathVariable(name = "id") Shop shop, @RequestBody Picture picture) {
+	public String addPicture(@PathVariable(name = "id") Shop shop, @RequestBody Picture picture) {
 		picture.setAuthor(picture.getAuthor());
 		picture.setShop(shop);
 		picture.setDate(new Date(System.currentTimeMillis()));
-		return pictureServiceImpl.addPicture(picture);
+		pictureServiceImpl.addPicture(picture);
+		return picture.getTitle() + " by " + picture.getAuthor() + " has been added to " + shop.getName();
 	}
 
 	// Get all pictures
@@ -54,29 +55,38 @@ public class PictureController {
 
 	// Update picture
 	@PutMapping("/pictures/{id}")
-	public Picture updatePicture(@PathVariable(name = "id") Long id, @RequestBody Picture picture) {
+	public String updatePicture(@PathVariable(name = "id") Long id, @RequestBody Picture picture) {
 		Picture pictureToUpdate = pictureServiceImpl.getPicture(id);
-		pictureToUpdate.setTitle(picture.getTitle());
-		pictureToUpdate.setAuthor(picture.getAuthor());
-		pictureToUpdate.setPrice(picture.getPrice());
-		return pictureServiceImpl.updatePicture(pictureToUpdate);
+		if(picture.getTitle()!=null) {	//If title is not modified
+			pictureToUpdate.setTitle(picture.getTitle());
+		}
+		if(picture.getAuthor()!=null) {	//If author is not modified
+			pictureToUpdate.setAuthor(picture.getAuthor());
+		}
+		if(picture.getPrice()!=null) {	//If price is not modified
+			pictureToUpdate.setPrice(picture.getPrice());
+		}
+		pictureServiceImpl.updatePicture(pictureToUpdate);
+		return pictureToUpdate.getTitle() + " by " + pictureToUpdate.getAuthor() + " has been updated";
 	}
 
 	// Delete picture
 	@DeleteMapping("/pictures/{id}")
-	public void deletePicture(@PathVariable(name = "id")Long id) {
+	public String deletePicture(@PathVariable(name = "id")Long id) {
+		Picture pictureToDelete = pictureServiceImpl.getPicture(id);
 		pictureServiceImpl.deletePicture(id);
+		return pictureToDelete.getTitle() + " by " + pictureToDelete.getAuthor() + " has been deleted";
 	}
 
 	// Delete all picture from shop
 	@DeleteMapping("/burn/{id}")
-	public void burnPictures(@PathVariable(name = "id")Shop shop) {
+	public String burnPictures(@PathVariable(name = "id")Shop shop) {
 		List<Picture> pictures = shop.getPictures();
 		for (Picture p : pictures) {
 			Long pictureId = p.getId();
 			pictureServiceImpl.deletePicture(pictureId);
 		}
-		
+		return "All pictures from " + shop.getName() + " have been burned!";
 	}
 
 }
