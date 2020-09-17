@@ -79,7 +79,7 @@ public class PictureController {
 	}
 
 	// Delete all picture from shop
-	@DeleteMapping("/burn/{id}")
+	@DeleteMapping("/shops/{id}/pictures")
 	public String burnPictures(@PathVariable(name = "id")Shop shop) {
 		List<Picture> pictures = shop.getPictures();
 		for (Picture p : pictures) {
